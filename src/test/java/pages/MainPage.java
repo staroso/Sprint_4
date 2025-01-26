@@ -5,10 +5,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class MainPage {
 
@@ -29,14 +25,6 @@ public class MainPage {
     // Кнопка "Заказать" в хедере
     private By orderButton = By.cssSelector(".Button_Button__ra12g");
     // Кнопка "Статус заказа"
-    private By orderStatusButton = By.cssSelector(".Header_Link__1TAG7");
-    // Поле ввода "Введите номер заказа"
-    private By orderNumberInput = By.cssSelector(".Header_Input__xIoUq");
-    // Кнопка "Go!" для поиска заказа
-    private By goButton = By.cssSelector(".Header_Button__28dPO");
-    // Таблица с характеристиками самоката
-    private By scooterDetailsTable = By.cssSelector(".Home_Table__2kPxP");
-    // Раздел вопросов FAQ
     private By faqSection = By.cssSelector(".Home_FAQ__3uVm4");
     // Вторая кнопка "Заказать" (в основном контенте страницы)
     private By secondOrderButton = By.cssSelector(".Button_Button__ra12g.Button_Middle__1CSJM");
@@ -62,40 +50,10 @@ public class MainPage {
         return secondOrderButton;
     }
 
-    // Клик по кнопке "Заказать"
-    public void clickOrderButton() {
-        driver.findElement(orderButton).click();
-    }
-
-    // Клик по кнопке "Статус заказа"
-    public void clickOrderStatusButton() {
-        driver.findElement(orderStatusButton).click();
-    }
-
-    // Ввод номера заказа в поле ввода
-    public void enterOrderNumber(String orderNumber) {
-        driver.findElement(orderNumberInput).sendKeys(orderNumber);
-    }
-
-    // Клик по кнопке "Go!" для поиска заказа
-    public void clickGoButton() {
-        driver.findElement(goButton).click();
-    }
-
-    // Проверка, видна ли таблица с характеристиками самоката
-    public boolean isScooterDetailsVisible() {
-        return driver.findElement(scooterDetailsTable).isDisplayed();
-    }
-
     // Клик по кнопке согласия с cookie
     public void acceptCookies() {
         driver.findElement(cookieAcceptButton).click();
     }
-    //  public void acceptCookies() {
-    //    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    //   WebElement cookieButtonElement = wait.until(ExpectedConditions.elementToBeClickable(cookieButton));
-    //   cookieButtonElement.click();
-    //  }
 
     // Проверка, виден ли раздел FAQ
     public boolean isFAQSectionVisible() {

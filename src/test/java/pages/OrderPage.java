@@ -18,13 +18,10 @@ public class OrderPage {
     private By deliveryDateField = By.cssSelector("input[placeholder='* Когда привезти самокат']");
     private By rentalPeriodDropdown = By.xpath("//div[contains(text(), '* Срок аренды')]");
     private By blackPearlCheckbox = By.id("black");
-    private By greyCheckbox = By.id("grey");
     private By commentField = By.cssSelector("input[placeholder='Комментарий для курьера']");
     private By orderButton = By.xpath("//button[contains(@class, 'Button_Button__ra12g') and contains(@class, 'Button_Middle__1CSJM') and text()='Заказать']"); // Селектор с точками
     private By confirmationMessage = By.xpath("//div[@class='Order_ModalHeader__3FDaJ' and contains(text(), 'Заказ оформлен')]");
-    private By cookieButton = By.id("rcc-confirm-button");
     private By yesButton = By.xpath("//div[@class='Order_Modal__YZ-d3']//button[text()='Да']");
-
 
     // Конструктор
     public OrderPage(WebDriver driver) {
@@ -47,11 +44,9 @@ public class OrderPage {
         // Кликаем на поле выбора станции метро
         WebElement metroField = driver.findElement(metroStation);
         metroField.click();
-
         // Ожидаем появления выпадающего списка и выбираем первый элемент
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='select-search__row'][1]")));
-
         // Кликаем на первый элемент списка
         firstOption.click();
     }
